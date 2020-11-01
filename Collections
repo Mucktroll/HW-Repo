@@ -1,1 +1,20 @@
+HW1
+      package com.company;
+      import static com.company.ibio.Helpers.*;
+      import ibadts.IBCollection;
 
+      public class Main
+      {
+          public static void main(String[] args)
+          {
+              IBCollection<String> names = new IBCollection<>();
+              names.add (new String[] {"John", "Marie"});
+
+              for (int count = 0; count <= 2; count++)
+              {
+                  names.resetNext();
+                  while(names.hasNext())
+                      output(names.getNext());
+              }
+          }
+      }
