@@ -18,3 +18,45 @@ HW1
               }
           }
       }
+      
+      
+HW2
+
+      package com.company;
+      import static com.company.ibio.Helpers.*;
+      import ibadts.IBCollection;
+      import java.util.Scanner;
+
+      public class Main
+      {
+          public static void main(String[] args)
+          {
+              IBCollection<Integer> numbers = new IBCollection<>();
+              Scanner scan = new Scanner(System.in);
+              int t = 0;
+              boolean flag = true;
+              int number = 0;
+
+              while (flag)
+              {
+                  number = inputInt();
+
+                  if (number <= 0)
+                      flag = false;
+
+                  else
+                  {
+                      numbers.addItem(number);
+                      t = number;
+                  }
+              }
+
+              while (numbers.hasNext())
+              {
+                  number = numbers.getNext();
+
+                  if (number > t)
+                      output(number);
+              }
+          }
+      }
