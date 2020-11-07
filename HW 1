@@ -1,0 +1,45 @@
+package com.company;
+import static com.company.ibio.Helpers.*;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        int [] array = {-2, 9, 11, 12, 13, 14, 15, 22, 142};
+
+        int key = 15;
+        int high = array.length - 1;
+        int low = 0;
+        int mid;
+
+        boolean found = false;
+
+        while (!found && low <= high)
+        {
+
+            mid = (low + high) / 2;
+            int val = array[mid];
+
+            if (val == key)
+            {
+                found = true;
+                output(val);
+            }
+
+            else if (val > key)
+            {
+                high = mid - 1;
+                output(val);
+            }
+
+            else
+            {
+                low = mid + 1;
+                output(val);
+            }
+
+        }
+
+        output(found);
+    }
+}
