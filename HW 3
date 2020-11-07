@@ -1,0 +1,43 @@
+package com.company;
+import static com.company.ibio.Helpers.*;
+import ibadts.IBCollection;
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        IBCollection<Integer> list = new IBCollection<>();
+        Scanner scan = new Scanner(System.in);
+        boolean flag = false;
+        int sum = 0;
+        int counter = 0;
+        int number;
+        int average;
+
+        while (!flag)
+        {
+            number = inputInt();
+
+            if (number >= 0)
+            {
+                list.addItem(number);
+                sum = sum + number;
+                counter++;
+            }
+            else
+            {
+                flag = true;
+            }
+        }
+
+        while (list.hasNext())
+        {
+            average = sum/counter;
+            int num = list.getNext();
+
+            if (num > average * 1.5 || num < average * 0.5)
+                output(num);
+        }
+    }
+}
