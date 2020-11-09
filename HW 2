@@ -1,0 +1,23 @@
+package com.company;
+import static com.company.ibio.Helpers.*;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        String [] students = {"Alissa", "Ben", "Charlie", "Dianna"};
+        String [] grades = {"B", "D", "B", "A"};
+
+        String key = "Charlie";
+
+        for (int i = 0; i < students.length; i++)
+        {
+            if (students[i] == key)
+            {
+                output(grades[i]);
+            }
+
+        }
+    }
+
+}
