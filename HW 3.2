@@ -1,0 +1,44 @@
+package com.company;
+import static com.company.ibio.Helpers.*;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        int[] numbers = {-4, 11, 7, -12, 6, 1};
+        int correct = 0;
+        boolean flag = true;
+
+        while (flag == true)
+        {
+            for (int i = 0; i < numbers.length - 1 - correct; i++)
+            {
+                flag = false;
+
+                if (numbers[i] > numbers[i + 1])
+                {
+                    swap(numbers, i, i + 1);
+                    flag = true;
+                    
+                    for (int n : numbers)
+                        System.out.print(n + " ");
+                    output(" ");
+                }
+            }
+
+            correct++;
+        }
+
+        for (int n : numbers)
+            System.out.print(n + " ");
+        output(" ");
+    }
+
+    static void swap (int[] array,int ind1, int ind2)
+    {
+        int temp = array[ind1];
+        array[ind1] = array[ind2];
+        array[ind2] = temp;
+    }
+
+}
