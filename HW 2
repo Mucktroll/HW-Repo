@@ -1,0 +1,21 @@
+package com.company;
+import static com.company.ibio.Helpers.*;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        String [] books = {"Lord of the Rings", "The Hobbit"};
+        StringBuffer strBuffer = new StringBuffer();
+
+        for (int i = 0; i < books.length; i++)
+        {
+            strBuffer.append(books[i]);
+            
+            if (i != books.length - 1)
+                strBuffer.append(" & ");
+        }
+
+        System.out.println(strBuffer);
+    }
+}
