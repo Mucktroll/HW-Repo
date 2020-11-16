@@ -7,25 +7,21 @@ public class Main
     {
         int [] array = {9, 7, 2, 11};
         int i = 1;
+        int n = array.length;
+        int val;
 
-        for (int n = 0; n <= array.length; n++)
+        while (i < n)
         {
-            while (i < n)
-            {
-                int val = array[i];
-                int j = i - 1;
+            val = array[i];
+            int j = i - 1;
 
-                if (j >= 0 && array[j] > val)
-                {
-                    array[j + 1] = array[j];
-                    j++;
-                }
-                else
-                {
-                    array [j + 1] = val;
-                    i++;
-                }
+            if (j >= 0 && array[j] > val)
+            {
+                array[j + 1] = array[j];
+                j--;
             }
+                array [j + 1] = val;
+                i++;
         }
 
         for (int a : array)
