@@ -1,0 +1,31 @@
+  
+package com.company;
+import static com.company.ibio.Helpers.*;
+import ibcsutils.ReadViaURL;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        String addr = "http://www-personal.umich.edu/~jlawler/wordlist";
+        String [] words = ReadViaURL.readWords (addr);
+
+        String key = "abeyant";
+        boolean found = false;
+        int slot = 0;
+
+        while (!found)
+        {
+            for (int i = 0; i < words.length; i++)
+            {
+                if (words[i].equals(key))
+                {
+                    found = true;
+                    slot = i;
+                }
+            }
+        }
+        output(key + " is in slot " + (slot+1));
+
+    }
+}
