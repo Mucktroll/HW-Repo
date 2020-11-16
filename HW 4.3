@@ -1,0 +1,38 @@
+package com.company;
+import static com.company.ibio.Helpers.*;
+import ibcsutils.ReadViaURL;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        String addr = "http://www-personal.umich.edu/~jlawler/wordlist";
+        String [] words = ReadViaURL.readWords (addr);
+
+        String key = "abeyant";
+        boolean found = false;
+        int high = words.length;
+        int low = 0;
+        int mid;
+
+        while (low <= high && !found)
+        {
+            mid = (low + high) / 2;
+            String val = words[mid];
+
+            if (val.equals(key))
+            {
+                found = true;
+                output(mid);
+            }
+            else if (key.compareTo(val) > 0)
+            {
+                low = mid + 1;
+            }
+            else
+                high = mid - 1;
+        }
+
+        output(found);
+    }
+}
