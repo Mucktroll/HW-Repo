@@ -1,0 +1,30 @@
+package com.company;
+import java.util.Scanner;
+import java.util.LinkedList;
+
+public class Main
+{
+
+    public static void main(String[] args)
+    {
+        LinkedList<String> list = new LinkedList<>();
+
+        try (Scanner input = new Scanner(System.in))
+        {
+            String word;
+            System.out.println("Give me words, end with !: ");
+
+            while (!(word = input.next()).equals("!"))
+            {
+                list.add(word);
+            }
+        }
+
+        catch (Exception e)
+        {
+            System.out.println("got exception" + e);
+        }
+
+        System.out.println(list);
+    }
+}
