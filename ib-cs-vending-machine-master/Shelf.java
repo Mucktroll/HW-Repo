@@ -26,7 +26,7 @@ public class Shelf
     products [1] = Product.Apple;
     quantities [1] = 1;
     products[2] = Product.Banana;
-    quantities[2] = 1;
+    quantities[2] = 3;
     products[3] = Product.Chocolate;
     quantities[3] = 1;
   }
@@ -69,6 +69,13 @@ public class Shelf
         id = i;
     }
     quantities[id]--;
+    
+    if(quantities[id] > 1)
+      System.out.println("There are " + quantities[id] + " remaining");
+    else if (quantities[id] == 0)
+      System.out.println("That was the last one");
+    else
+      System.out.println("There is " + quantities[id] + " remaining");
 
   }
   
