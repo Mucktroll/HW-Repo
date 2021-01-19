@@ -62,7 +62,7 @@ public class UserInterface implements AutoCloseable
     System.out.println("Type the name of the product to confirm");
     System.out.flush ();
     String str = scanner.nextLine();
-    return str.equals(product.toString());
+    return str.equals(product.name());
   }
   
   private Scanner scanner;
