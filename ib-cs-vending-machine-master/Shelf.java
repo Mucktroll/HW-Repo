@@ -69,7 +69,7 @@ public class Shelf
         id = i;
     }
     quantities[id]--;
-    
+
     if(quantities[id] > 1)
       System.out.println("There are " + quantities[id] + " remaining");
     else if (quantities[id] == 0)

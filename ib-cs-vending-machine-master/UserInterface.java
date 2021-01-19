@@ -40,6 +40,7 @@ public class UserInterface implements AutoCloseable
     Product chosenProduct = null;
     while (chosenProduct == null)
     {
+      System.out.print("");
       System.out.print ("Give id of chosen item and press enter: ");
       System.out.flush ();
       if (scanner.hasNextInt ())
@@ -60,8 +61,9 @@ public class UserInterface implements AutoCloseable
   {
     // code to be written
     System.out.println("Type the name of the product to confirm");
-    System.out.flush ();
+    System.out.flush();
     String str = scanner.nextLine();
+
     return str.equals(product.name());
   }
   
