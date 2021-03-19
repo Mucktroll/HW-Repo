@@ -1,9 +1,5 @@
 package com.company;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import javax.swing.Timer;
-
 public class Application
 {
     public Application()
