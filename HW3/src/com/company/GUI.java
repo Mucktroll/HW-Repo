@@ -54,5 +54,4 @@ public class GUI extends JFrame
     private JMenuBar menuBar;
     private JTextField textField;
     private JTextArea textArea;
-    private final static String newline = "\n";
 }
