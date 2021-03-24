@@ -1,57 +1,71 @@
 package com.company;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
 
 public class GUI extends JFrame
 {
-    public GUI(Application application)
-    {
-        super("A simple GUI demo");
+    public GUI(Application application) {
+        super("Name of App");
         this.application = application;
-
-        //Frame Properties
         setSize(400, 300);
-        setLayout(new FlowLayout());
-        setVisible(true);
 
-        //Quit
-        menuBar = new JMenuBar ();
-        JMenu fileMenu = new JMenu ("File");
-        JMenuItem quitItem = new JMenuItem ("Quit");
-        quitItem.addActionListener ((ActionEvent e) ->
 
+        menuBar = new JMenuBar();
+        JMenu fileMenu = new JMenu("Menu");
+        JMenuItem quitItem = new JMenuItem("Quit");
+        quitItem.addActionListener((ActionEvent e) ->
+                System.exit(0));
+
+        fileMenu.add(quitItem);
+        menuBar.add(fileMenu);
+        setJMenuBar(menuBar);
+
+
+        textField = new JTextField(10);
+        add(textField, BorderLayout.PAGE_END);
+        textField.getDocument().addDocumentListener(new DocumentListener()
         {
-            int result = JOptionPane.showConfirmDialog(this,
-                    "Are you sure you want to exit?",
-                    null,
-                    JOptionPane.OK_CANCEL_OPTION);
-            if (result == JOptionPane.YES_OPTION)
-                System.exit(0);
+            public void insertUpdate(DocumentEvent e)
+            {
+                updateTextLength();
+            }
+
+            public void removeUpdate(DocumentEvent e)
+            {
+                updateTextLength();
+            }
+
+            public void changedUpdate(DocumentEvent e)
+            {
+
+            }
         });
 
-        fileMenu.add (quitItem);
-        menuBar.add (fileMenu);
-        setJMenuBar (menuBar);
+        progressBar = new JProgressBar(0, 10);
+        progressBar.setValue(0);
+        add(progressBar);
 
-        //TextField
-        textField = new JTextField(10);
-        textField.addActionListener(this::actionPerformed);
-        add(textField);
-
+        setVisible(true);
     }
 
-    public void actionPerformed(ActionEvent evt)
+    public void updateTextLength()
     {
-        String text = textField.getText();
-        textArea.append(text + newline);
-        textField.selectAll();
+        application.textLength = textField.getText().length();
+        showTextLength();
+    }
+
+    void showTextLength()
+    {
+        progressBar.setValue(application.textLength);
     }
 
     private Application application;
     private JMenuBar menuBar;
     private JTextField textField;
-    private JTextArea textArea;
+    private JProgressBar progressBar;
 }
